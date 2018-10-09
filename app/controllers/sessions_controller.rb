@@ -27,7 +27,8 @@ class SessionsController < ApplicationController
       if response.try(:[], :errors)
         render json: { errors: response.errors }, status: :bad_request
       else
-        urll = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=#{response["items"].first["id"]}&key=AIzaSyBA_Q8wGiSEGyc5tzSilyh0syojjDHSlvA"
+        key = "discribe your key"
+        urll = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=#{response["items"].first["id"]}&key=#{key}"
         videos = JSON.parse(Net::HTTP.get(URI.parse(URI.escape(urll))))
 
         body = {
