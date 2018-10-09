@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :topics
+
+  get '/auth/:provider/callback', to: 'sessions#google'
 end
